@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  background-color: rgb(17, 17, 17);
 }
 ol, ul {
 	list-style: none;
@@ -48,4 +49,9 @@ body{
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+div{
+  color: white;
+  padding: 1.2em;
+
 }

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
 
-export default function Post(){
-    return(
-        <>
-        <p>Walid</p>
-        <p>React is cool</p>
-        </>
-    )
+export default function Post(props) {
+    
+  return (
+    <div>
+      <p>{props.author}</p>
+      <p>{props.content}</p>
+    </div>
+  );
 }
