@@ -43,15 +43,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-div{
-  color: white;
-  padding: 1.2em;
-
+  text-align: center;
 }

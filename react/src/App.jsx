@@ -1,11 +1,10 @@
 import React from 'react'
-import Post from './components/Post'
+import PostList from './Components/PostList'
 
 export default function App() {
   return (
     <main>
-      <Post author ="Walid" content="Hi, I'm walid"/>
-      <Post author ="Tyson" content="Hi, I'm Tyson"/>
+      <PostList/>
     </main>
   )
 }
