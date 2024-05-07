@@ -5,28 +5,21 @@ import NewPost from "./NewPost";
 import { useState } from "react";
 import Modal from './Modal'
 
-export default function UnorderedList() {
-  const [enteredBody, setEnteredBody] = useState("");
-  const [enteredAuthor, setEnteredAuthor] = useState("");
-  const [modalIsVisible, setModalIsVisible] = useState(true);
+export default function UnorderedList({isPosting, onStopPosting}) {
 
-  function hideModalHandler(){
-    setModalIsVisible(false);
+  const [posts, setPosts] = useState([]);
+
+  function addPostHandler(postData){
+    setPosts((existingPosts) => [postData, ...existingPosts])
   }
-  function bodyChangeHandler(e){
-    setEnteredBody(e.target.value);
-  }
-  
-  function authorChangeHandler(e){
-    setEnteredAuthor(e.target.value);
-  }
+
 
   let modalContent;
 
-  if (modalIsVisible){
+  if (isPosting){
     modalContent = (
-      <Modal onClose={hideModalHandler}>
-      <NewPost onBodyChange={bodyChangeHandler} onAuthorChange={authorChangeHandler}/>
+      <Modal onClose={onStopPosting}>
+      <NewPost onCancel={onStopPosting} onAddPost={addPostHandler}/>
       </Modal>
     )
   }
@@ -34,9 +27,10 @@ export default function UnorderedList() {
   return (
     <>
     {modalContent}
-    <ul className={classes.posts}>
-      <Post author={enteredAuthor} text={enteredBody} />
-    </ul>
+    {posts.length > 0 && (<ul className={classes.posts}>
+    {posts.map((post) => <Post key={post.body} author={post.author} text={post.body}/>)}
+    </ul>) }
+    {posts.length === 0 && <div style={{textAlign: 'center', color: 'white'}}>There are no posts yet.</div>}
    </>
   );
 }
