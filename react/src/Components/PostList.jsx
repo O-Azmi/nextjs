@@ -34,6 +34,7 @@ export default function UnorderedList({ isPosting, onStopPosting }) {
     modalContent = (
       <Modal onClose={onStopPosting}>
         <NewPost onCancel={onStopPosting} onAddPost={addPostHandler} />
+        <p>he</p>
       </Modal>
     );
   }
